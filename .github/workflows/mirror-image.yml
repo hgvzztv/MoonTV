@@ -19,11 +19,11 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Pull source image
-        run: docker pull ghcr.io/senshinya/moontv:latest      #别人的镜像  hslr/sun-panel:latest
+        run: docker pull ghcr.io/senshinya/moontv:sha-a5a4e9f      #别人的镜像  hslr/sun-panel:latest
 
       - name: Re-tag
         run: |
-          docker tag ghcr.io/senshinya/moontv:latest ghcr.io/${{ github.actor }}/hf-mtv-haogv:latest   #记得改别人的和自己的 
+          docker tag ghcr.io/senshinya/moontv:sha-a5a4e9f ghcr.io/${{ github.actor }}/hf-mtv-haogv:latest   #记得改别人的和自己的 
 
       - name: Push to GHCR
         run: docker push ghcr.io/${{ github.actor }}/hf-mtv-haogv:latest     #改成自己喜欢的名字hf-sunpanel
